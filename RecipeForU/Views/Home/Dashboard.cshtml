@@ -1,0 +1,221 @@
+﻿
+@{
+    ViewBag.Title = "後台管理";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!--inner block start here-->
+<div class="inner-block">
+    <!--market updates updates-->
+    <div class="market-updates">
+        <div class="col-md-4 market-update-gd">
+            <div class="market-update-block clr-block-1">
+                <div class="col-md-8 market-update-left">
+                    <h3>@DateTime.Now.Year</h3>
+                    <h4>會員人數</h4>
+                </div>
+                <div class="col-md-4 market-update-right">
+                    <i class="fa fa-user-o"> </i>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="col-md-4 market-update-gd">
+            <div class="market-update-block clr-block-2">
+                <div class="col-md-8 market-update-left">
+                    <h3>@DateTime.Now.Year</h3>
+                    <h4>今日拜訪人次</h4>
+                </div>
+                <div class="col-md-4 market-update-right">
+                    <i class="fa fa-eye"> </i>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="col-md-4 market-update-gd">
+            <div class="market-update-block clr-block-3">
+                <div class="col-md-8 market-update-left">
+                    <h3>@DateTime.Now.Year</h3>
+                    <h4>食譜總數</h4>
+                </div>
+                <div class="col-md-4 market-update-right">
+                    <i class="fa fa-book"> </i>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <!--market updates end here-->
+    <!--mainpage chit-chating-->
+    <div class="chit-chat-layer1">
+        <div class="col-md-6 chit-chat-layer1-left">
+            <div class="work-progres">
+                <div class="chit-chat-heading" style="padding-bottom:1em">
+                    食譜流量排行
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>食譜名稱</th>
+                                <th>作者</th>
+
+                                <th>分類</th>
+                                <th>瀏覽人次</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>蘋果派</td>
+                                <td>王小明</td>
+
+                                <td><span class="label label-warning">甜點</span></td>
+                                <td><span class="badge badge-info">9533</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>章魚燒</td>
+                                <td>李小華</td>
+
+                                <td><span class="label label-info">正餐</span></td>
+                                <td><span class="badge badge-success">8756</span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>鮭魚握壽司</td>
+                                <td>湯瑪士</td>
+
+                                <td><span class="label label-warning">甜點</span></td>
+                                <td><span class="badge badge-warning">7469</span></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>玉子燒</td>
+                                <td>環保阿嬤金鳳姨</td>
+
+                                <td><span class="label label-info">正餐</span></td>
+                                <td><span class="badge badge-info">5673</span></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>好ㄘ的千層派</td>
+                                <td>老王</td>
+
+                                <td><span class="label label-warning">甜點</span></td>
+                                <td><span class="badge badge-danger">3264</span></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Q彈布丁</td>
+                                <td>米米安</td>
+
+                                <td><span class="label label-info">正餐</span></td>
+                                <td><span class="badge badge-success">2568</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--main page chit chating end here-->
+    <!--main page chart start here-->
+    <div class="main-page-charts">
+        <div class="main-page-chart-layer1">
+            <div class="col-md-6 chit-chat-layer1-rit">
+                <div class="work-progres-add">
+                    <div class="span-2c">
+                        <h3 style="padding-bottom:1em">本週新增食譜數</h3>
+                        <canvas id="bar" height="300" width="300" style="width: 300px; height: 300px;"></canvas>
+                        <script>
+                            var barChartData = {
+                                labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+                                datasets: [
+                                    {
+                                        fillColor: "#FC8213",
+                                        data: [65, 59, 90, 81, 56, 55, 40]
+                                    },
+                                    {
+                                        fillColor: "#337AB7",
+                                        data: [28, 48, 40, 19, 96, 27, 100]
+                                    }
+                                ]
+
+                            };
+                            new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+    <!--main page chart layer2-->
+    <div class="chart-layer-2">
+
+        <div class="col-md-6 chart-blo-1">
+            <div class="line-chart">
+                <h3 style="padding-bottom:1em">本週拜訪人次</h3>
+                <canvas id="line" height="300" width="400" style="width: 400px; height: 300px;"> </canvas>
+                <script>
+                    var lineChartData = {
+                        labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+                        datasets: [
+                            {
+                                fillColor: "rgba(252, 130, 19, 0.74)",
+                                strokeColor: "#FC8213",
+                                pointColor: "#FC8213",
+                                pointStrokeColor: "#fff",
+                                data: [65, 59, 90, 81, 56, 55, 40]
+                            },
+                            {
+                                fillColor: "rgba(51, 122, 183, 0.71)",
+                                strokeColor: "#337AB7",
+                                pointColor: "#337AB7",
+                                pointStrokeColor: "#fff",
+                                data: [28, 48, 40, 19, 96, 27, 100]
+                            }
+                        ]
+
+                    };
+                    new Chart(document.getElementById("line").getContext("2d")).Line(lineChartData);
+
+                </script>
+            </div>
+        </div>
+
+<!-- 尚未顯示職業別  -->
+        <div class="col-md-6 chart-blo-1">
+            <div class="dygno">
+                <h2 style="padding-bottom:1em">會員職業分布</h2>
+
+                <canvas id="doughnut" height="300" width="470" style="width: 470px; height: 300px;"></canvas>
+                <script>
+                    var doughnutData = [
+                        {
+                            value: 30,
+                            color: "#337AB7"
+                        },
+                        {
+                            value: 50,
+                            color: "#929292"
+                        },
+                        {
+                            value: 100,
+                            color: "#FC8213"
+                        },
+                        {
+                            value: 40,
+                            color: "#68AE00"
+                        },
+                    ];
+                    new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(doughnutData);
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<!--inner block end here-->
